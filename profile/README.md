@@ -7,7 +7,7 @@
 워크스페이스에서 프로젝트와 팀을 관리하고, 실시간 대화와 AI 기반 Task 제안을 통해
 기획부터 실행까지 이어지는 협업 흐름을 제공합니다.
 
-[Front](https://github.com/Workly-Ai-Agent/Front) · [Back](https://github.com/Workly-Ai-Agent/Back) · [AI-Agent](https://github.com/Workly-Ai-Agent/AI-Agent)
+[Front](https://github.com/Workly-Ai-Agent/Front) · [Back](https://github.com/Workly-Ai-Agent/Back) · [AI-Agent](https://github.com/Workly-Ai-Agent/AI-Agent) · [Test](https://github.com/Workly-Ai-Agent/Test)
 
 </div>
 
@@ -15,9 +15,7 @@
 
 ## 프로젝트 소개
 
-프로젝트를 진행하다 보면 업무 계획, 담당자, 진행 상황, 팀 논의가 여러 곳에 흩어집니다. Workly는 이를 하나의 협업 공간으로 모으고, 채팅에서 나온 업무 변경을 검토 가능한 Task 제안으로 연결합니다.
-
-AI는 계획과 대화를 Task 및 담당자 제안으로 정리합니다. 제안은 프로젝트 리더가 검토하고 승인한 뒤 반영되므로, 팀의 결정과 실제 업무 목록을 함께 관리할 수 있습니다.
+프로젝트 계획, 담당자, 진행 상황과 팀 대화를 하나의 협업 공간에 모읍니다. AI는 계획과 대화에서 실행 가능한 Task 및 담당자 제안을 만들고, 프로젝트 Leader가 검토하고 승인한 뒤 실제 업무에 반영합니다.
 
 ## 주요 기능
 
@@ -49,12 +47,12 @@ Task Board에서 실행 상황 관리
 
 ## 시스템 구성
 
-| 구성 요소 | 기술 | 담당 |
+| 구성 요소 | 기술 | 역할 |
 | --- | --- | --- |
-| Frontend | React, TypeScript, Vite | 사용자 화면, 프로젝트·Task·채팅 인터랙션 |
-| Backend | Kotlin, Spring Boot, Spring Data JPA | 인증, 권한, 도메인 API, 데이터 저장, WebSocket 채팅 |
-| AI Agent | Python, FastAPI, LangChain, LangGraph | 계획 구조화, 담당자 추천, 결과 검증, 메시지 분류, 스킬 추출 |
-| Database | 개발 H2 / 배포 설정 PostgreSQL | 사용자·워크스페이스·프로젝트·Task·메시지·제안 데이터 |
+| [Front](https://github.com/Workly-Ai-Agent/Front) | React, TypeScript, Vite | 프로젝트, Task, 채팅 사용자 화면 |
+| [Back](https://github.com/Workly-Ai-Agent/Back) | Kotlin, Spring Boot, Spring Data JPA | 인증, 권한, API, 데이터 저장, WebSocket |
+| [AI-Agent](https://github.com/Workly-Ai-Agent/AI-Agent) | Python, FastAPI, LangChain, LangGraph | 계획 구성, 담당자 추천, 검증, 메시지 분류, 스킬 추출 |
+| Database | H2 / PostgreSQL | 사용자, 워크스페이스, 프로젝트, Task, 채팅, 제안 저장 |
 
 ```text
 React Frontend ── HTTP API / WebSocket ── Kotlin Spring Backend
@@ -62,15 +60,9 @@ React Frontend ── HTTP API / WebSocket ── Kotlin Spring Backend
                                                 └── HTTP ── Python AI Agent
 ```
 
-## 저장소
-
-- [Front](https://github.com/Workly-Ai-Agent/Front) — React + TypeScript 클라이언트
-- [Back](https://github.com/Workly-Ai-Agent/Back) — Kotlin + Spring Boot API 서버
-- [AI-Agent](https://github.com/Workly-Ai-Agent/AI-Agent) — Python 기반 AI 워크플로우
-
 ## 개발 안내
 
-각 저장소의 README와 환경 설정 안내를 참고해 실행 환경을 구성하세요. AI 제안 기능에는 Agent 서버와 모델 API 키 설정이 필요합니다. 로컬 개발 DB는 H2를 사용하며, 배포 설정은 PostgreSQL 환경 변수를 사용합니다.
+각 저장소의 README에서 실행 방법과 환경 변수 설정을 확인할 수 있습니다. AI 제안 기능을 사용하려면 AI Agent와 모델 API 키를 설정해야 합니다. 테스트 시나리오 도구는 [Test 저장소](https://github.com/Workly-Ai-Agent/Test)를 참고하세요.
 
 ## 팀
 
